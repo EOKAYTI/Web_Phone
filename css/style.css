@@ -1,0 +1,70 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: #f6f9fe;
+}
+
+header {
+  padding: 30px 0;
+  box-shadow: 0 2px 4px #e2ebfc;
+}
+header .header_content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .header_content a {
+  text-decoration: none;
+}
+header .header_content .header_logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2a72dc;
+}
+header .header_content nav ul {
+  list-style: none;
+  display: flex;
+}
+header .header_content nav ul li {
+  margin-right: 20px;
+}
+header .header_content nav ul li a {
+  font-size: 16px;
+  font-weight: 400;
+  color: #1e355e;
+  transition: all 0.3s;
+  position: relative;
+}
+header .header_content nav ul li a::before {
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #2a72dc;
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  transition: all 0.5s;
+}
+header .header_content nav ul li.active a {
+  color: #2a72dc;
+}
+header .header_content nav ul li.active a::before {
+  width: 100%;
+}
+header .header_content nav ul li:hover a {
+  color: #2a72dc;
+}
+header .header_content nav ul li:hover a::before {
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */

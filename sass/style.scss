@@ -1,0 +1,101 @@
+// reset css
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+// variable
+$bg-background: #f6f9fe;
+$color-blue-100: #2a72dc;
+$color-blue-200: #1e355e;
+$color-yellow-100: #f9d32f;
+$color-text-white: white;
+
+$fs-logo: 24px;
+$fs-title-1: 60px;
+$fs-title-2: 34px;
+$fs-sub-title: 20px;
+$ps-paragraph: 18px;
+
+$box-shadow: 0 2px 4px #e2ebfc;
+
+@mixin styleText($fw, $color, $fs: 16px) {
+  font-size: $fs;
+  font-weight: $fw;
+  color: $color;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+body {
+  background-color: $bg-background;
+}
+
+header {
+  padding: 30px 0;
+  box-shadow: $box-shadow;
+
+  .header_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+    }
+    .header_logo {
+      @include styleText(bold, $color-blue-100, $fs-logo);
+    }
+
+    nav {
+      ul {
+        list-style: none;
+        display: flex;
+
+        li {
+          margin-right: 20px;
+          a {
+            @include styleText(400, $color-blue-200);
+            transition: all 0.3s;
+            position: relative;
+
+            &::before {
+              content: "";
+              width: 0;
+              height: 3px;
+              background-color: $color-blue-100;
+              display: block;
+              position: absolute;
+              left: 0;
+              bottom: -10px;
+              transition: all 0.5s;
+            }
+          }
+          &.active {
+            a {
+              color: $color-blue-100;
+              &::before {
+                width: 100%;
+              }
+            }
+          }
+
+          &:hover {
+            a {
+              color: $color-blue-100;
+
+              &::before {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
