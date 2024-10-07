@@ -14,9 +14,12 @@ body {
   background-color: #f6f9fe;
 }
 
+/* ----------------HEADER---------------- */
 header {
   padding: 30px 0;
   box-shadow: 0 2px 4px #e2ebfc;
+  position: relative;
+  z-index: 2;
 }
 header .header_content {
   display: flex;
@@ -67,4 +70,170 @@ header .header_content nav ul li:hover a {
 }
 header .header_content nav ul li:hover a::before {
   width: 100%;
-}/*# sourceMappingURL=style.css.map */
+}
+
+/* ----------------BANNER---------------- */
+.banner {
+  background-image: url("./../image/product-header-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  padding: 5px 0;
+}
+.banner .banner_content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.banner .banner_content .banner_text h1 {
+  font-size: 60px;
+  font-weight: bold;
+  color: #2a72dc;
+}
+.banner .banner_content .banner_text .banner_sub_title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1e355e;
+  margin: 15px 0;
+}
+.banner .banner_content .banner_text .banner_group_button {
+  margin-top: 10px;
+}
+.banner .banner_content .banner_text .banner_group_button svg {
+  margin-right: 5px;
+}
+.banner .banner_content .banner_text .banner_group_button .button_more_info {
+  border-radius: 8px;
+  padding: 15px 40px;
+  border: 2px solid #2a72dc;
+  background-color: white;
+  color: #2a72dc;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.banner
+  .banner_content
+  .banner_text
+  .banner_group_button
+  .button_more_info:hover {
+  background-color: #2a72dc;
+  color: white;
+}
+.banner .banner_content .banner_text .banner_group_button .button_shop {
+  border-radius: 8px;
+  padding: 15px 40px;
+  border: 2px solid #2a72dc;
+  background-color: #2a72dc;
+  color: white;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: 0 2px 4px #e2ebfc;
+}
+.banner .banner_content .banner_text .banner_group_button .button_shop:hover {
+  background-color: white;
+  color: #2a72dc;
+}
+.banner .banner_content .banner_img {
+  width: 50%;
+}
+.banner .banner_content .banner_img img {
+  width: 100%;
+}
+
+/* ----------------PRODUCT---------------- */
+.product {
+  padding: 30px 0;
+}
+.product .product_title {
+  text-align: center;
+  font-size: 34px;
+  font-weight: bold;
+  color: #1e355e;
+}
+.product .product_content {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.product .product_content .product_item {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1px solid #000;
+  padding: 30px;
+  background-color: white;
+  border-radius: 8px;
+  animation-name: zoomIn;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+.product .product_content .product_item:ntn-child(i) {
+  animation-delay: 2s;
+}
+.product .product_content .product_item:ntn-child(i) {
+  animation-delay: 2s;
+}
+.product .product_content .product_item:ntn-child(i) {
+  animation-delay: 2s;
+}
+.product .product_content .product_item:ntn-child(i) {
+  animation-delay: 2s;
+}
+.product .product_content .product_item:ntn-child(i) {
+  animation-delay: 2s;
+}
+.product .product_content .product_item img {
+  width: 100%;
+  box-shadow: 0 2px 4px #e2ebfc;
+  border-radius: 8px;
+}
+.product .product_content .product_item h3 {
+  font-size: 25px;
+  font-weight: bold;
+  color: #2a72dc;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+.product .product_content .product_item .sub_title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1e355e;
+}
+.product .product_content .product_item .product_group_action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product
+  .product_content
+  .product_item
+  .product_group_action
+  .product_rate
+  svg
+  path {
+  fill: #f9d32f;
+}
+.product .product_content .product_item .product_group_action button {
+  border-radius: 8px;
+  padding: 15px 40px;
+  border: 2px solid #2a72dc;
+  background-color: #2a72dc;
+  color: #f6f9fe;
+  transition: all 0.3s;
+  cursor: pointer;
+  box-shadow: 0 2px 4px #e2ebfc;
+}
+.product .product_content .product_item .product_group_action button:hover {
+  background-color: #f6f9fe;
+  color: #2a72dc;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+} /*# sourceMappingURL=style.css.map */

@@ -1,30 +1,30 @@
-// reset css
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
-}
-
 // variable
+// màu
 $bg-background: #f6f9fe;
 $color-blue-100: #2a72dc;
 $color-blue-200: #1e355e;
 $color-yellow-100: #f9d32f;
 $color-text-white: white;
 
+// font size
 $fs-logo: 24px;
 $fs-title-1: 60px;
 $fs-title-2: 34px;
+$fs-title-3: 25px;
 $fs-sub-title: 20px;
 $ps-paragraph: 18px;
 
+// độ bóng
 $box-shadow: 0 2px 4px #e2ebfc;
 
-@mixin styleText($fw, $color, $fs: 16px) {
-  font-size: $fs;
-  font-weight: $fw;
-  color: $color;
+@if $hover {
+  &:hover {
+    background-color: $color;
+    color: $bg;
+  }
+}
+@if $box-shadow {
+  box-shadow: $box-shadow;
 }
 
 .container {
@@ -36,10 +36,12 @@ body {
   background-color: $bg-background;
 }
 
+/* ----------------HEADER---------------- */
 header {
   padding: 30px 0;
   box-shadow: $box-shadow;
-
+  position: relative;
+  z-index: 2;
   .header_content {
     display: flex;
     justify-content: space-between;
@@ -48,6 +50,7 @@ header {
     a {
       text-decoration: none;
     }
+
     .header_logo {
       @include styleText(bold, $color-blue-100, $fs-logo);
     }
@@ -76,6 +79,7 @@ header {
               transition: all 0.5s;
             }
           }
+
           &.active {
             a {
               color: $color-blue-100;
@@ -98,4 +102,132 @@ header {
       }
     }
   }
+}
+
+/* ----------------BANNER---------------- */
+.banner {
+  background-image: url("./../image/product-header-bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  padding: 5px 0;
+  .banner_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .banner_text {
+      h1 {
+        @include styleText(bold, $color-blue-100, $fs-title-1);
+      }
+      .banner_sub_title {
+        @include styleText(bold, $color-blue-200, $fs-sub-title);
+        margin: 15px 0;
+      }
+      .banner_group_button {
+        margin-top: 10px;
+        svg {
+          margin-right: 5px;
+        }
+        .button_more_info {
+          @include styleButton($color-blue-100, white);
+        }
+        .button_shop {
+          @include styleButton(white, $color-blue-100, true, $box-shadow);
+        }
+      }
+    }
+    .banner_img {
+      width: 50%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+/* ----------------PRODUCT---------------- */
+.product {
+  padding: 30px 0;
+  .product_title {
+    text-align: center;
+    @include styleText(bold, $color-blue-200, $fs-title-2);
+  }
+  .product_content {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+
+    @media screen and (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+
+    .product_item {
+      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+      border: 1px solid #000;
+      padding: 30px;
+      background-color: white;
+      border-radius: 8px;
+
+      animation-name: zoomIn;
+      animation-duration: 2s;
+      animation-fill-mode: forwards;
+      opacity: 0;
+
+      @for $i from 2 through 6 {
+        &:ntn-child(#{$i}) {
+          animation-delay: ($i-1) * 2s;
+        }
+      }
+
+      img {
+        width: 100%;
+        box-shadow: $box-shadow;
+        border-radius: 8px;
+      }
+      h3 {
+        @include styleText(bold, $color-blue-100, $fs-title-3);
+        margin: 10px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+      .sub_title {
+        @include styleText(bold, $color-blue-200);
+      }
+      .product_group_action {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .product_rate {
+          svg {
+            path {
+              fill: $color-yellow-100;
+            }
+          }
+        }
+        button {
+          @include styleButton(
+            $bg-background,
+            $color-blue-100,
+            true,
+            $box-shadow
+          );
+        }
+      }
+    }
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// ultility class
+@for $i from 1 through 100 {
 }
