@@ -12,4 +12,16 @@
   color: $color;
   transition: all 0.3s;
   cursor: pointer;
+
+  // sau if là lấy giá trị của biến đã setup trong mixin
+  @if $hover {
+    &:hover {
+      background-color: $color;
+      color: $bg;
+    }
+  }
+
+  @if $box-shadow {
+    box-shadow: $box-shadow;
+  }
 }

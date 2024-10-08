@@ -1,39 +1,18 @@
-// variable
-// màu
-$bg-background: #f6f9fe;
-$color-blue-100: #2a72dc;
-$color-blue-200: #1e355e;
-$color-yellow-100: #f9d32f;
-$color-text-white: white;
+@import "./base/reset";
+@import "./helper/variable";
+@import "./helper/mixin";
+@import "./base/base";
 
-// font size
-$fs-logo: 24px;
-$fs-title-1: 60px;
-$fs-title-2: 34px;
-$fs-title-3: 25px;
-$fs-sub-title: 20px;
-$ps-paragraph: 18px;
-
-// độ bóng
-$box-shadow: 0 2px 4px #e2ebfc;
-
-@if $hover {
-  &:hover {
-    background-color: $color;
-    color: $bg;
-  }
-}
-@if $box-shadow {
-  box-shadow: $box-shadow;
-}
+@import "./component/product_item";
+@import "./layout/product";
 
 .container {
   max-width: 1140px;
   margin: 0 auto;
 }
 
-body {
-  background-color: $bg-background;
+.button_shop {
+  @include styleButton(white, $color-blue-100, true, $box-shadow);
 }
 
 /* ----------------HEADER---------------- */
@@ -56,6 +35,10 @@ header {
     }
 
     nav {
+      @media screen and (max-width: 576px) {
+        display: none;
+      }
+
       ul {
         list-style: none;
         display: flex;
@@ -145,78 +128,6 @@ header {
   }
 }
 
-/* ----------------PRODUCT---------------- */
-.product {
-  padding: 30px 0;
-  .product_title {
-    text-align: center;
-    @include styleText(bold, $color-blue-200, $fs-title-2);
-  }
-  .product_content {
-    display: grid;
-    gap: 30px;
-    grid-template-columns: repeat(3, 1fr);
-
-    @media screen and (max-width: 576px) {
-      grid-template-columns: 1fr;
-    }
-
-    .product_item {
-      box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-      border: 1px solid #000;
-      padding: 30px;
-      background-color: white;
-      border-radius: 8px;
-
-      animation-name: zoomIn;
-      animation-duration: 2s;
-      animation-fill-mode: forwards;
-      opacity: 0;
-
-      @for $i from 2 through 6 {
-        &:ntn-child(#{$i}) {
-          animation-delay: ($i-1) * 2s;
-        }
-      }
-
-      img {
-        width: 100%;
-        box-shadow: $box-shadow;
-        border-radius: 8px;
-      }
-      h3 {
-        @include styleText(bold, $color-blue-100, $fs-title-3);
-        margin: 10px 0;
-        display: flex;
-        justify-content: space-between;
-      }
-      .sub_title {
-        @include styleText(bold, $color-blue-200);
-      }
-      .product_group_action {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        .product_rate {
-          svg {
-            path {
-              fill: $color-yellow-100;
-            }
-          }
-        }
-        button {
-          @include styleButton(
-            $bg-background,
-            $color-blue-100,
-            true,
-            $box-shadow
-          );
-        }
-      }
-    }
-  }
-}
-
 @keyframes zoomIn {
   from {
     transform: scale(0);
@@ -229,5 +140,8 @@ header {
 }
 
 // ultility class
-@for $i from 1 through 100 {
+@for $i from 1 through 10 {
+  .fs-#{$i} {
+    font-size: ($i) px;
+  }
 }
